@@ -58,7 +58,7 @@ class Product:
 
         """ Returns a string that represents the product """
 
-        return f"Name: {self.name}, Price: {self.price}, Quantity: {self.quantity}"
+        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}"
 
     def buy(self, quantity_to_buy):
 
