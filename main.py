@@ -1,14 +1,6 @@
 import products
 import store
 
-# setup initial stock of inventory
-product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
-                products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
-                products.Product("Google Pixel 7", price=500, quantity=250)
-               ]
-
-best_buy = store.Store(product_list)
-
 # This is a new helper function for Option 3
 def handle_make_order(store_object):
     """
@@ -82,8 +74,8 @@ def handle_make_order(store_object):
     try:
         # Calling the .order() method from Store class
         total_price = store_object.order(shopping_list)
-        print("\nOrder Successful!")
-        print(f"Total Price: {total_price:,.2f}\n")
+        print("\nOrder Successful ✅!")
+        print(f"Total Price: {total_price:,.2f} euros 💶\n")
         print("------------------------------")
     except Exception as e:
         # Catches errors like "Not enough stock" from product.buy()
@@ -91,11 +83,7 @@ def handle_make_order(store_object):
         print(f"Error: {e}")
         print("Please try again.\n")
 
-
-
-
-
-
+# Main Menu Function
 
 def start(store_object):
     while True:
@@ -128,9 +116,23 @@ def start(store_object):
             handle_make_order(store_object)
 
         elif user_choice == "4":
+            print("Thank you for using our service. Goodbye 👋!")
             break
 
         else:
             print(f"Invalid choice '{user_choice}'. Please enter a number from 1 to 4")
 
-start(best_buy)
+
+# Script Execution
+if __name__ == "__main__":
+    # setup initial stock of inventory
+    product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
+                    products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
+                    products.Product("Google Pixel 7", price=500, quantity=250)
+                    ]
+
+    # Create the store instance
+    best_buy = store.Store(product_list)
+
+    # Call the start function to run the menu
+    start(best_buy)
