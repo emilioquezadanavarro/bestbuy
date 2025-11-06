@@ -97,4 +97,3 @@ class Product:
 
         total_price = self.price * quantity_to_buy
         return total_price
-
