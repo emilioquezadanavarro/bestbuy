@@ -52,6 +52,29 @@ class Store:
             # If it doesn't exist,a raise an error
             raise Exception(f"Product {product_to_remove.name} does not exist")
 
+    def get_total_quantity(self):
+
+        """ Returns how many items are in the store in total """
+
+        total_quantity = 0 # Counter starts at 0
+
+        for product in self.list_of_products: # Loop through every item in list_of_products
+            total_quantity += product.get_quantity() # Add that quantity to the total
+
+        return total_quantity # return the total sum
+
+    def get_all_products(self):
+
+        """ Returns all the products in the store that are active """
+
+        all_products = []
+
+        for product in self.list_of_products: # Loop through every item in list_of_products
+            if product.is_active(): # Checking if the product is active
+                all_products.append(product) # If so, product is added to all_product list
+
+        return all_products
+
 
 
 
