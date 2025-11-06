@@ -75,7 +75,20 @@ class Store:
 
         return all_products
 
+    def order(self, shopping_list):
 
+        order_total_price = 0 # Counter starts at 0
+
+        for product, quantity in shopping_list: # Loop through the list of (product, quantity) tuples.
+            try:
+                order_total_price += product.buy(quantity)
+            except Exception as e:
+                #If product.buy() raises an exception (e.g., "not enough stock"), print a message and stop the order.
+                print(f"Order failed: Could not buy {quantity} og {product.name}. Error: {e}")
+                raise e
+
+        # Returns the total price
+        return order_total_price
 
 
 
