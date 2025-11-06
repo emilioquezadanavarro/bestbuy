@@ -34,6 +34,27 @@ class Store:
         # Print a message to the user.
         print(f"Added {product_to_add.name}")
 
+    def remove_product(self,product_to_remove):
+
+        """ Removes a single Product object from the store's list """
+
+        # Check if it is a Product
+        if not isinstance(product_to_remove, Product):
+            raise TypeError(f"You can only remove Products objects, not {type(product_to_remove)}")
+
+        # Existence check
+        # Checks if the OBJECT is in the list.
+        if product_to_remove in self.list_of_products:
+            # If it exists, it removes the object and prints a message to the user.
+            self.list_of_products.remove(product_to_remove)
+            print(f"{product_to_remove.name} was removed")
+        else:
+            # If it doesn't exist,a raise an error
+            raise Exception(f"Product {product_to_remove.name} does not exist")
+
+
+
+
 
 
 
